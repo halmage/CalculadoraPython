@@ -10,9 +10,6 @@ import time
 
 
 class Calculadora:
-    """
-    Calculadora
-    """
 
     def ingresoDeDatos(self):
         # Ingreso de datos
@@ -29,7 +26,12 @@ class Calculadora:
 
     def menu(self):
         # Menu de operaciones
-        print("Menu de operaciones")
+        anuncio = """
+            *********************
+            |MENU DE OPERACIONES|
+            *********************
+            """
+        print(anuncio)
         print("0.Crear base de datos")
         print("1. Suma")
         print("2. Resta")
@@ -45,6 +47,7 @@ class Calculadora:
 
     def operacion(self, opcion):
         # Operaciones que se relieazara en el sistema para calculos
+        Calculadora.ingresoDeDatos(self)  # Funcion de ingreso de datos
         if opcion == "1":  # Suma
             return {
                 "num1": self.num1,
@@ -117,13 +120,19 @@ class Calculadora:
                 system("clear")
                 continue
             ################################################################
-            Calculadora.ingresoDeDatos(self)  # Funcion de ingreso de datos
             calculadora_table = (  # Llamada de la clase CalculadoraTable()
                 CalculadoraTable()
             )
-            resultado = Calculadora.operacion(self, self.opcion)
             if self.opcion == "1":
                 # Suma de numeros
+                system("clear")
+                anuncio = """
+                *****************
+                |SUMA DE NUMEROS| 
+                *****************
+                """
+                print(anuncio)
+                resultado = Calculadora.operacion(self, self.opcion)
                 print(
                     f"El resultado de la suma de {resultado['num1']} {resultado['operacion']} {resultado['num2']} es: {resultado['resultado']}"
                 )
@@ -131,6 +140,14 @@ class Calculadora:
                 Otros.cargando(self)
             elif self.opcion == "2":
                 # Resta de numeros
+                system("clear")
+                anuncio = """
+                ******************
+                |RESTA DE NUMEROS| 
+                ******************
+                """
+                print(anuncio)
+                resultado = Calculadora.operacion(self, self.opcion)
                 print(
                     f"El resultado de la resta de {resultado['num1']} {resultado['operacion']} {resultado['num2']} es: {resultado['resultado']}"
                 )
@@ -138,6 +155,14 @@ class Calculadora:
                 Otros.cargando(self)
             elif self.opcion == "3":
                 # Multiplicacion de numeros
+                system("clear")
+                anuncio = """
+                ***************************
+                |MULTIPLICACION DE NUMEROS| 
+                ***************************
+                """
+                print(anuncio)
+                resultado = Calculadora.operacion(self, self.opcion)
                 print(
                     f"El resultado de la multiplicacion de {resultado['num1']} {resultado['operacion']} {resultado['num2']} es: {resultado['resultado']}"
                 )
@@ -145,8 +170,17 @@ class Calculadora:
                 Otros.cargando(self)
             elif self.opcion == "4":
                 # Division de numeros
-                if resultado == False:
-                    print("Error: No se puede dividir por cero.")
+                system("clear")
+                anuncio = """
+                ******************
+                |DIVISION DE NUMEROS| 
+                ******************
+                """
+                print(anuncio)
+                resultado = Calculadora.operacion(self, self.opcion)
+
+                if resultado["resultado"] == False:
+                    print("Error: No se puede dividir entre cero.")
                     Otros.cargando(self)
                 else:
                     print(
